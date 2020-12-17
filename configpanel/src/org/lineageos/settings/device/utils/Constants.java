@@ -36,12 +36,15 @@ public class Constants {
     public static final String OCLICK_FENCE_KEY = "oclick_fence";
     public static final String OCLICK_DISCONNECT_ALERT_KEY = "oclick_disconnect_alert";
     public static final String BUTTON_SWAP_KEY = "button_swap";
+    public static final String BUTTON_BACKLIGHT_KEY = "button_backlight";
     public static final String NOTIF_SLIDER_TOP_KEY = "keycode_top_position";
     public static final String NOTIF_SLIDER_MIDDLE_KEY = "keycode_middle_position";
     public static final String NOTIF_SLIDER_BOTTOM_KEY = "keycode_bottom_position";
 
     // Button nodes
     public static final String BUTTON_SWAP_NODE = "/proc/s1302/key_rep";
+    public static final String BUTTON_BACKLIGHT_NODE =
+        "/sys/class/leds/button-backlight/max_brightness";
     public static final String NOTIF_SLIDER_TOP_NODE = "/proc/tri-state-key/keyCode_top";
     public static final String NOTIF_SLIDER_MIDDLE_NODE = "/proc/tri-state-key/keyCode_middle";
     public static final String NOTIF_SLIDER_BOTTOM_NODE = "/proc/tri-state-key/keyCode_bottom";
@@ -55,6 +58,7 @@ public class Constants {
 
     public static final String[] sButtonPrefKeys = {
         BUTTON_SWAP_KEY,
+        BUTTON_BACKLIGHT_KEY,
         NOTIF_SLIDER_TOP_KEY,
         NOTIF_SLIDER_MIDDLE_KEY,
         NOTIF_SLIDER_BOTTOM_KEY
@@ -62,11 +66,13 @@ public class Constants {
 
     static {
         sBooleanNodePreferenceMap.put(BUTTON_SWAP_KEY, BUTTON_SWAP_NODE);
+        sBooleanNodePreferenceMap.put(BUTTON_BACKLIGHT_KEY, BUTTON_BACKLIGHT_NODE);
         sStringNodePreferenceMap.put(NOTIF_SLIDER_TOP_KEY, NOTIF_SLIDER_TOP_NODE);
         sStringNodePreferenceMap.put(NOTIF_SLIDER_MIDDLE_KEY, NOTIF_SLIDER_MIDDLE_NODE);
         sStringNodePreferenceMap.put(NOTIF_SLIDER_BOTTOM_KEY, NOTIF_SLIDER_BOTTOM_NODE);
 
         sNodeDefaultMap.put(BUTTON_SWAP_KEY, false);
+        sNodeDefaultMap.put(BUTTON_BACKLIGHT_KEY, true);
         sNodeDefaultMap.put(NOTIF_SLIDER_TOP_KEY, "601");
         sNodeDefaultMap.put(NOTIF_SLIDER_MIDDLE_KEY, "602");
         sNodeDefaultMap.put(NOTIF_SLIDER_BOTTOM_KEY, "603");

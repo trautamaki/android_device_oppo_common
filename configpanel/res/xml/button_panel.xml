@@ -21,6 +21,10 @@
         android:title="@string/button_swap_title"
         android:summary="@string/button_swap_summary" />
 
+    <SwitchPreference
+        android:key="button_backlight"
+        android:title="@string/button_backlight_title" />
+
     <PreferenceCategory
         android:title="@string/notification_slider_category_title">
 

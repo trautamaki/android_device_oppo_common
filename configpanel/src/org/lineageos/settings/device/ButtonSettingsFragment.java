@@ -44,7 +44,9 @@ public class ButtonSettingsFragment extends PreferenceFragment
         String node = Constants.sBooleanNodePreferenceMap.get(preference.getKey());
         if (!TextUtils.isEmpty(node) && FileUtils.isFileWritable(node)) {
             Boolean value = (Boolean) newValue;
-            FileUtils.writeLine(node, value ? "1" : "0");
+            String on = (preference.getKey().equals("button_backlight"))
+                    ? "255" : "1";
+            FileUtils.writeLine(node, value ? on : "0");
             return true;
         }
         node = Constants.sStringNodePreferenceMap.get(preference.getKey());
@@ -65,7 +67,9 @@ public class ButtonSettingsFragment extends PreferenceFragment
             String node = Constants.sBooleanNodePreferenceMap.get(pref);
             if (FileUtils.isFileReadable(node)) {
                 String curNodeValue = FileUtils.readOneLine(node);
-                b.setChecked(curNodeValue.equals("1"));
+                String on = (pref.getKey().equals("button_backlight"))
+                        ? "255" : "1";
+                b.setChecked(curNodeValue.equals(on));
                 b.setOnPreferenceChangeListener(this);
             } else {
                 removePref(b);
